@@ -27,7 +27,12 @@ app.post("/api/deleteRemote", (req, res) => {
 app.post("/api/getRemote", (req, res) => {
   res.json({ exist: remotes.indexOf(req.body.remoteID) > -1 });
 });
+
 app.get("/api/remotes", (req, res) => {
+  res.json({ remotes });
+});
+app.get("/api/clearRemotes", (req, res) => {
+  remotes = [];
   res.json({ remotes });
 });
 
