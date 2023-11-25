@@ -1,6 +1,7 @@
 let remotes = [];
 const express = require("express");
 const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 app.use(express.json());
@@ -9,6 +10,9 @@ app.use(cors());
 app.all("/", (req, res) => {
   console.log("Just got a request!");
   res.send("Yo!");
+});
+app.post("/api/uuid", (req, res) => {
+  res.json({ remoteID: uuidv4() });
 });
 app.post("/api/createRemote", (req, res) => {
   console.log(`createRemote: ${req.body.remoteID}`);
