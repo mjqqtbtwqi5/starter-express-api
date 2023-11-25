@@ -19,14 +19,14 @@ app.post("/api/createRemote", (req, res) => {
   remotes.push(req.body.remoteID);
   res.json({ created: true });
 });
-app.post("/api/deleteRemote", (req, res) => {
-  console.log(`deleteRemote: ${req.body.remoteID}`);
-  remotes = remotes.filter((rid) => rid !== req.body.remoteID);
-  res.json({ deleted: true });
-});
-app.post("/api/getRemote", (req, res) => {
-  res.json({ exist: remotes.indexOf(req.body.remoteID) > -1 });
-});
+// app.post("/api/deleteRemote", (req, res) => {
+//   console.log(`deleteRemote: ${req.body.remoteID}`);
+//   remotes = remotes.filter((rid) => rid !== req.body.remoteID);
+//   res.json({ deleted: true });
+// });
+// app.post("/api/getRemote", (req, res) => {
+//   res.json({ exist: remotes.indexOf(req.body.remoteID) > -1 });
+// });
 
 app.get("/api/remotes", (req, res) => {
   res.json({ remotes });
